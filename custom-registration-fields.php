@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: Inserimento campi Partita IVA e Ragione Sociale per www.soscasaitalia.com
-Description: Un semplice plugin per aggiungere i campi personalizzare nella registrazione utente di Wordpress. In questo caso Partita IVA e Ragiona sociale.
+Plugin Name: Inserimento campi Partita IVA e Ragione Sociale.
+Description: Un semplice plugin per aggiungere il campo della Ragione Sociale e della Partita IVA nel form di registrazione utente di WooCommerce. Entrambi sono obbligatori.
 Author: Carlo Stringaro
-Version: 1.0
-Author URI: http://www.carlosrtringaro.it
+Version: 1.2
+Author URI: http://www.carlostringaro.it
 */
 
 
@@ -35,7 +35,7 @@ function my_show_extra_profile_fields ( $user )
 				<span class="description">Inserisci la Partita IVA.</span>
 			</td>
 		</tr>
-		<!--Incolla qui la porzione di codice di eventuali campi-->
+		
 	</table>
 <?php
 }
@@ -73,10 +73,10 @@ function my_save_extra_profile_fields( $user_id )
 {
 	if ( !current_user_can( 'edit_user', $user_id ) )
 		return false;
-	/* Copia e incolla queste righe se si vuole aggiungere altri campi. Ricordarsi di cambiare il nome del meta con l'ID del tuo campo. */
+	
 	update_usermeta( $user_id, 'piva', $_POST['piva'] );
 	update_usermeta( $user_id, 'ragionesociale', $_POST['ragionesociale'] );
-	/*Incolla qui la stringa*/
+	
 }
 
 /**
@@ -120,12 +120,12 @@ add_action( 'woocommerce_register_post', 'wooc_validate_extra_register_fields', 
  
 function wooc_save_extra_register_fields( $customer_id ) {
       if ( isset( $_POST['billing_ragione_sociale'] ) ) {
-             //First name field which is by default
+             
              update_user_meta( $customer_id, 'ragionesociale', sanitize_text_field( $_POST['billing_ragione_sociale'] ) );
       
       }
       if ( isset( $_POST['billing_partita_iva'] ) ) {
-             // Last name field which is by default
+             
              update_user_meta( $customer_id, 'piva', sanitize_text_field( $_POST['billing_partita_iva'] ) );
              
       }
