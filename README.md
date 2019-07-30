@@ -1,4 +1,4 @@
-~Current Version:1.2~
+~Current Version:1.2.0.4~
 
 # Custom Registration Field
 
