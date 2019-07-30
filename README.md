@@ -1,4 +1,6 @@
-﻿# Custom Registration Field
+~Current Version:1.2~
+
+# Custom Registration Field
 
 Questo plugin aggiunge al form di registrazione di WooCommerce due textfield, quali RAGIONE SOCIALE e PARTITA IVA.
 Tali campi sono obbligatori durante la registrazione.
